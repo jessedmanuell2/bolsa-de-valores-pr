@@ -188,6 +188,214 @@
     <!-- App Assets -->
     <script type="module" crossorigin src="/assets/index-CIZWgUve.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-IaO60F_n.css">
+
+    <!-- News Section Styles -->
+    <style>
+      #bvpr-news-section {
+        background: #0a0a0a;
+        padding: 80px 0 60px;
+        font-family: 'Space Grotesk', 'Inter', sans-serif;
+        border-top: 1px solid rgba(255,255,255,0.04);
+      }
+      #bvpr-news-section * { box-sizing: border-box; margin: 0; padding: 0; }
+      .bvpr-news-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+      @media (min-width: 640px) { .bvpr-news-container { padding: 0 1.5rem; } }
+      @media (min-width: 1024px) { .bvpr-news-container { padding: 0 2rem; } }
+
+      .bvpr-news-header {
+        text-align: center;
+        margin-bottom: 48px;
+      }
+      .bvpr-news-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 16px;
+        margin-bottom: 20px;
+        background: rgba(0, 255, 136, 0.05);
+        border: 1px solid rgba(0, 255, 136, 0.2);
+        border-radius: 9999px;
+        font-size: 12px;
+        font-weight: 700;
+        color: #00ff88;
+        font-family: 'JetBrains Mono', monospace;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .bvpr-news-badge svg {
+        width: 14px; height: 14px; fill: none; stroke: #00ff88; stroke-width: 2;
+        stroke-linecap: round; stroke-linejoin: round;
+      }
+      .bvpr-news-title {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 2rem;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 12px;
+        line-height: 1.2;
+      }
+      @media (min-width: 640px) { .bvpr-news-title { font-size: 2.5rem; } }
+      .bvpr-news-subtitle {
+        color: rgba(255,255,255,0.55);
+        font-size: 1rem;
+        max-width: 520px;
+        margin: 0 auto;
+        line-height: 1.6;
+      }
+
+      .bvpr-news-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      @media (min-width: 640px) { .bvpr-news-grid { grid-template-columns: repeat(2, 1fr); } }
+      @media (min-width: 1024px) { .bvpr-news-grid { grid-template-columns: repeat(3, 1fr); } }
+
+      .bvpr-news-card {
+        background: #111118;
+        border: 1px solid #1e1e2a;
+        border-radius: 12px;
+        overflow: hidden;
+        transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        opacity: 0;
+        transform: translateY(16px);
+        animation: bvpr-fade-in 0.5s ease forwards;
+      }
+      .bvpr-news-card:nth-child(1) { animation-delay: 0.05s; }
+      .bvpr-news-card:nth-child(2) { animation-delay: 0.12s; }
+      .bvpr-news-card:nth-child(3) { animation-delay: 0.19s; }
+      .bvpr-news-card:nth-child(4) { animation-delay: 0.26s; }
+      .bvpr-news-card:nth-child(5) { animation-delay: 0.33s; }
+      .bvpr-news-card:nth-child(6) { animation-delay: 0.40s; }
+      @keyframes bvpr-fade-in {
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .bvpr-news-card:hover {
+        border-color: rgba(0, 255, 136, 0.3);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 32px rgba(0, 255, 136, 0.06);
+      }
+      .bvpr-news-card a {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        height: 100%;
+      }
+      .bvpr-news-img-wrap {
+        position: relative;
+        height: 176px;
+        overflow: hidden;
+        background: linear-gradient(135deg, #1a1a24, #0d0d14);
+      }
+      .bvpr-news-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s;
+      }
+      .bvpr-news-card:hover .bvpr-news-img-wrap img {
+        transform: scale(1.05);
+      }
+      .bvpr-news-img-grad {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, #111118, transparent 50%);
+        pointer-events: none;
+      }
+      .bvpr-news-img-placeholder {
+        height: 176px;
+        background: linear-gradient(135deg, #1a1a24, #0d0d14);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .bvpr-news-img-placeholder svg {
+        width: 32px; height: 32px; stroke: rgba(0,255,136,0.15); fill: none;
+        stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+      }
+      .bvpr-news-body { padding: 20px; }
+      .bvpr-news-meta {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 12px;
+        flex-wrap: wrap;
+      }
+      .bvpr-news-source {
+        font-size: 11px;
+        font-weight: 600;
+        color: #00ff88;
+        background: rgba(0,255,136,0.1);
+        padding: 2px 8px;
+        border-radius: 4px;
+        white-space: nowrap;
+      }
+      .bvpr-news-dot {
+        color: rgba(255,255,255,0.15);
+        font-size: 10px;
+      }
+      .bvpr-news-date {
+        font-size: 11px;
+        color: rgba(255,255,255,0.35);
+      }
+      .bvpr-news-card-title {
+        color: #ffffff;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 1.45;
+        margin-bottom: 8px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        transition: color 0.3s;
+      }
+      .bvpr-news-card:hover .bvpr-news-card-title {
+        color: #00ff88;
+      }
+      .bvpr-news-desc {
+        color: rgba(255,255,255,0.45);
+        font-size: 12px;
+        line-height: 1.5;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .bvpr-news-loading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 80px 0;
+      }
+      .bvpr-news-spinner {
+        width: 32px; height: 32px;
+        border: 2px solid rgba(0,255,136,0.2);
+        border-top-color: #00ff88;
+        border-radius: 50%;
+        animation: bvpr-spin 0.8s linear infinite;
+      }
+      @keyframes bvpr-spin { to { transform: rotate(360deg); } }
+
+      .bvpr-news-error {
+        text-align: center;
+        padding: 60px 0;
+        color: rgba(255,255,255,0.4);
+        font-size: 14px;
+      }
+
+      .bvpr-news-footer {
+        text-align: center;
+        margin-top: 32px;
+        color: rgba(255,255,255,0.2);
+        font-size: 12px;
+      }
+    </style>
     
   </head>
 
@@ -195,6 +403,136 @@
     
 
     <div id="root"></div>
+
+    <!-- News Section - Independent of React -->
+    <section id="bvpr-news-section">
+      <div class="bvpr-news-container">
+        <div class="bvpr-news-header">
+          <div class="bvpr-news-badge">
+            <svg viewBox="0 0 24 24"><path d="M19 20H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1m2 13a2 2 0 0 1-2-2V7m2 13a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8Z"/></svg>
+            NOTICIAS EN VIVO
+          </div>
+          <h2 class="bvpr-news-title">Noticias del Mercado</h2>
+          <p class="bvpr-news-subtitle">Las noticias financieras más importantes del momento, actualizadas en tiempo real desde fuentes confiables.</p>
+        </div>
+        <div id="bvpr-news-content">
+          <div class="bvpr-news-loading">
+            <div class="bvpr-news-spinner"></div>
+          </div>
+        </div>
+        <div class="bvpr-news-footer">Powered by MarketWatch &bull; Actualizado en tiempo real</div>
+      </div>
+    </section>
+
+    <script>
+    (function() {
+      var API_URL = 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Ffeeds.marketwatch.com%2Fmarketwatch%2Ftopstories%2F&count=12';
+      var container = document.getElementById('bvpr-news-content');
+      var newsSection = document.getElementById('bvpr-news-section');
+
+      // Move the news section inside #root's parent, right after the market section
+      // We need to wait for React to render, then reposition the section
+      function repositionSection() {
+        var rootEl = document.getElementById('root');
+        if (!rootEl || !rootEl.firstChild) return false;
+        // Find the footer or last major section to insert before
+        var footer = rootEl.querySelector('footer');
+        if (footer) {
+          footer.parentNode.insertBefore(newsSection, footer);
+          return true;
+        }
+        // Fallback: append inside root
+        rootEl.appendChild(newsSection);
+        return true;
+      }
+
+      // Try to reposition after React renders
+      var attempts = 0;
+      var repoInterval = setInterval(function() {
+        attempts++;
+        if (repositionSection() || attempts > 40) {
+          clearInterval(repoInterval);
+        }
+      }, 250);
+
+      function formatDate(dateStr) {
+        try {
+          var dt = new Date(dateStr);
+          var now = new Date();
+          var diffMin = Math.floor((now - dt) / 60000);
+          if (diffMin < 1) return 'Ahora';
+          if (diffMin < 60) return diffMin + 'm';
+          if (diffMin < 1440) return Math.floor(diffMin / 60) + 'h';
+          return dt.toLocaleDateString('es-PR', { month: 'short', day: 'numeric' });
+        } catch(e) { return ''; }
+      }
+
+      function renderNews(items) {
+        var html = '<div class="bvpr-news-grid">';
+        items.forEach(function(item) {
+          var imgUrl = '';
+          if (item.enclosure && item.enclosure.link) {
+            imgUrl = item.enclosure.link;
+          } else if (item.thumbnail) {
+            imgUrl = item.thumbnail;
+          }
+          var source = item.author || 'MarketWatch';
+          var date = formatDate(item.pubDate);
+          var desc = item.description || '';
+          // Strip HTML tags from description
+          desc = desc.replace(/<[^>]*>/g, '');
+
+          html += '<div class="bvpr-news-card">';
+          html += '<a href="' + item.link + '" target="_blank" rel="noopener noreferrer">';
+          
+          if (imgUrl) {
+            html += '<div class="bvpr-news-img-wrap">';
+            html += '<img src="' + imgUrl + '" alt="" loading="lazy" onerror="this.parentNode.outerHTML=\'<div class=bvpr-news-img-placeholder><svg viewBox=&quot;0 0 24 24&quot;><path d=&quot;M19 20H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1m2 13a2 2 0 0 1-2-2V7m2 13a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8Z&quot;/></svg></div>\'" />';
+            html += '<div class="bvpr-news-img-grad"></div>';
+            html += '</div>';
+          } else {
+            html += '<div class="bvpr-news-img-placeholder"><svg viewBox="0 0 24 24"><path d="M19 20H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1m2 13a2 2 0 0 1-2-2V7m2 13a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8Z"/></svg></div>';
+          }
+
+          html += '<div class="bvpr-news-body">';
+          html += '<div class="bvpr-news-meta">';
+          html += '<span class="bvpr-news-source">' + source + '</span>';
+          html += '<span class="bvpr-news-dot">&bull;</span>';
+          html += '<span class="bvpr-news-date">' + date + '</span>';
+          html += '</div>';
+          html += '<h3 class="bvpr-news-card-title">' + item.title + '</h3>';
+          if (desc) {
+            html += '<p class="bvpr-news-desc">' + desc + '</p>';
+          }
+          html += '</div>';
+          html += '</a>';
+          html += '</div>';
+        });
+        html += '</div>';
+        container.innerHTML = html;
+      }
+
+      function loadNews() {
+        fetch(API_URL)
+          .then(function(r) { return r.json(); })
+          .then(function(data) {
+            if (data.status === 'ok' && data.items && data.items.length > 0) {
+              renderNews(data.items.slice(0, 6));
+            } else {
+              container.innerHTML = '<div class="bvpr-news-error">No hay noticias disponibles en este momento.</div>';
+            }
+          })
+          .catch(function() {
+            container.innerHTML = '<div class="bvpr-news-error">No se pudieron cargar las noticias. Intente recargar la p&aacute;gina.</div>';
+          });
+      }
+
+      loadNews();
+      // Refresh every 5 minutes
+      setInterval(loadNews, 300000);
+    })();
+    </script>
+
   </body>
 
 </html>
