@@ -1,5 +1,6 @@
 # Robots.txt for bolsadevalorespr.com
 # Trading & Financial Education Platform - Puerto Rico
+# La plataforma líder de educación en trading en Puerto Rico
 
 User-agent: *
 Allow: /
@@ -9,26 +10,53 @@ Disallow: /assets/*.css$
 # Sitemap
 Sitemap: https://bolsadevalorespr.com/sitemap.xml
 
-# AI Search Engine Crawlers
+# AI Search Engine Crawlers - Full Access
 User-agent: GPTBot
-Allow: /
-
-User-agent: Google-Extended
 Allow: /
 
 User-agent: ChatGPT-User
 Allow: /
 
-User-agent: CCBot
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
 Allow: /
 
 User-agent: anthropic-ai
 Allow: /
 
+User-agent: CCBot
+Allow: /
+
 User-agent: Bytespider
 Allow: /
 
-User-agent: PerplexityBot
+User-agent: Amazonbot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: ImagesiftBot
+Allow: /
+
+User-agent: Omgilibot
 Allow: /
 
 # Standard Search Engines
